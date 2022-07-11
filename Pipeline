@@ -9,7 +9,7 @@ pipeline{
         stages{
                 stage('DRYRUN'){
                         steps{
-                                retry(){script{
+                                retry(3){script{
                                         if("$CHOICE" == "YES")
                                         {
                                                 currentBuild.result = "ABORTED"
