@@ -9,10 +9,10 @@ pipeline{
                         place= "Hyd"
                   }
                   steps{
-                    scripts{
+                    script{
                     birth= "July 15 1997"
-                    print(name place birth )
                     }
+                   echo "my name is $name, my place is $place and my birth is $birth "
                   }
               }
         }
