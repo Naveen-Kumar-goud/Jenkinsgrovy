@@ -1,5 +1,8 @@
 pipeline{
         agent any
+        options{
+                timestamp()
+        }
         parameters{
                 choice(name: 'CHOICE', choices: 'YES\nNO', description: 'SELECT ONE')
         }
