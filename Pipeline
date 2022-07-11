@@ -30,7 +30,7 @@ pipeline{
                    }
                stage('TEXT'){
                       steps{
-                            echo $TEXT
+                            echo "$TEXT"
                       }
                }
                stage('CHOICE'){
@@ -45,7 +45,7 @@ pipeline{
                }
                stage('file'){
                         steps{
-                                echo $FILE
+                                echo "$FILE"
                         }
                }
                
