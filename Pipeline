@@ -8,13 +8,16 @@ pipeline{
         }
         stages{
                 stage('DRYRUN'){
+                options{
+                        retry(3)
+                        }
                         steps{
-                                retry(3){script{
+                                script{
                                         if("$CHOICE" == "YES")
                                         {
                                                 currentBuild.result = "ABORTED"
                                                 error("DRY RUN")
-                                       } }
+                                       }
                                 }
                         }
                 }
