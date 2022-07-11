@@ -5,7 +5,7 @@ pipeline{
                 booleanParam(name: 'TOGGLE', defaultValue: True, description: 'SELECT')
                 text(name: 'TEXT', defaultValue: 'TEXT', description: 'TEXT')
                 choice(name: 'CHOICE', choices:'one\ntwo\nthree', description: 'CHOOSE') 
-                password(name: 'SECRET', defaultValue:'SECRET', description: 'SECRET')
+                password(name: 'PASSWORD', defaultValue:'SECRET', description: 'SECRET')
                 file(name: 'FILE', description: 'UPLOAD FILE')
         }
         stages{
@@ -17,7 +17,7 @@ pipeline{
               stage('BOOLEAN'){
                    steps{
                          script{
-                                        if(params.TOOBLE == True)
+                                        if(params.TOGGLE == True)
                                         {
                                                 echo "True"
                                         }
