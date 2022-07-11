@@ -5,15 +5,16 @@ pipeline{
         }
         stages{
               stage('Hello World'){
-                  envirnoment{
-                        place= "Hyd"
+                  environment{
+                        home= "Hyd"
                   }
                   steps{
-                    script{
-                    birth= "July 15 1997"
-                    }
-                   echo "my name is $name, my place is $place and my birth is $birth "
+                        script{
+                                birth = "July 15th 1997"
+                                echo "Name: $name, Home: $home, Birth = $birth" 
+                        }
                   }
+                  
               }
         }
 }
