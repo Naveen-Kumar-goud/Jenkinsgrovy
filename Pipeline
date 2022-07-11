@@ -1,53 +1,13 @@
 pipeline{
         agent any
-        parameters{
-                string(name: 'STRING', defaultValue: 'STRING', description: 'STRING')
-                booleanParam(name: 'TOGGLE', defaultValue: true, description: 'SELECT')
-                text(name: 'TEXT', defaultValue: 'TEXT', description: 'TEXT')
-                choice(name: 'CHOICE', choices:'one\ntwo\nthree', description: 'CHOOSE') 
-                password(name: 'PASSWORD', defaultValue:'SECRET', description: 'SECRET')
-                file(name: 'FILE', description: 'UPLOAD FILE')
+        environment{
+                choice(name: 'CHOICE', choices: 'YES\nNO', description: 'SELECT ONE')
         }
         stages{
-              stage('STRING'){
-                  steps{
-                               echo "$STRING" 
-                        }
-                   }
-              stage('BOOLEAN'){
-                   steps{
-                         script{
-                                        if(TOGGLE)
-                                        {
-                                                echo "True"
-                                        }
-                                        else
-                                        {
-                                                echo "False"
-                                        }
-                                }
-                        }
-                   }
-               stage('TEXT'){
-                      steps{
-                            echo "$TEXT"
-                      }
-               }
-               stage('CHOICE'){
-                     steps{
-                        echo '$CHOICE'
-                     }
-               }
-               stage('PASSWORD'){
-                               steps{
-                                        echo "$PASSWORD"
-                               }
-               }
-               stage('file'){
+                stage('DRYRUN'){
                         steps{
-                                echo "$FILE"
+                                echo "$CHOICE"
                         }
-               }
-               
+                }
         }
 }
