@@ -2,7 +2,7 @@ pipeline{
         agent any
         parameters{
                 string(name: 'STRING', defaultValue: 'STRING', description: 'STRING')
-                booleanParam(name: 'TOGGLE', defaultValue: True, description: 'SELECT')
+                booleanParam(name: 'TOGGLE', defaultValue: true, description: 'SELECT')
                 text(name: 'TEXT', defaultValue: 'TEXT', description: 'TEXT')
                 choice(name: 'CHOICE', choices:'one\ntwo\nthree', description: 'CHOOSE') 
                 password(name: 'PASSWORD', defaultValue:'SECRET', description: 'SECRET')
@@ -11,13 +11,13 @@ pipeline{
         stages{
               stage('STRING'){
                   steps{
-                               echo "params.STRING" 
+                               echo "$STRING" 
                         }
                    }
               stage('BOOLEAN'){
                    steps{
                          script{
-                                        if(params.TOGGLE == True)
+                                        if(TOGGLE)
                                         {
                                                 echo "True"
                                         }
