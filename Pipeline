@@ -1,9 +1,18 @@
 pipeline{
         agent any
+        environment{
+                name= "Navee"
+        }
         stages{
               stage('Hello World'){
+                  envirnoment{
+                        place= "Hyd"
+                  }
                   steps{
-                    echo 'Hello World'
+                    scripts{
+                    birth= "July 15 1997"
+                    print("My name is " + name \n "Place " + place\n "birth " + birth)
+                    }
                   }
               }
         }
