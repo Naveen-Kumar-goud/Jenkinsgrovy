@@ -2,6 +2,7 @@ pipeline{
         agent any
         options{
                 timestamps()
+                retry(3)
         }
         parameters{
                 choice(name: 'CHOICE', choices: 'YES\nNO', description: 'SELECT ONE')
