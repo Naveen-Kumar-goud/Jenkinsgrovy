@@ -2,7 +2,6 @@ pipeline{
         agent any
         options{
                 timestamps()
-                retry(3)
         }
         parameters{
                 choice(name: 'CHOICE', choices: 'YES\nNO', description: 'SELECT ONE')
@@ -10,12 +9,12 @@ pipeline{
         stages{
                 stage('DRYRUN'){
                         steps{
-                                script{
+                                retry(){script{
                                         if("$CHOICE" == "YES")
                                         {
                                                 currentBuild.result = "ABORTED"
                                                 error("DRY RUN")
-                                        }
+                                       } }
                                 }
                         }
                 }
