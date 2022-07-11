@@ -11,7 +11,7 @@ pipeline{
                   steps{
                     scripts{
                     birth= "July 15 1997"
-                    print("My name is " + name \n "Place " + place\n "birth " + birth)
+                    print("My name is " + name " Place " + place " birth " + birth)
                     }
                   }
               }
