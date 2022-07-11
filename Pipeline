@@ -6,7 +6,12 @@ pipeline{
         stages{
                 stage('DRYRUN'){
                         steps{
-                                echo "$CHOICE"
+                                script{
+                                        if($CHOICE == YES)
+                                        {
+                                                error("DRY RUN")
+                                        }
+                                }
                         }
                 }
         }
