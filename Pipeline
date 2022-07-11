@@ -1,20 +1,53 @@
 pipeline{
         agent any
-        environment{
-                name= "Naveen"
+        parameters{
+                string(name: 'STRING', defaultValue: 'STRING', description: 'STRING')
+                booleanParam(name: 'TOGGLE', defaultValue: True, description: 'SELECT')
+                text(name: 'TEXT', defaultValue: 'TEXT', description: 'TEXT')
+                choice(name: 'CHOICE', choices:'one\ntwo\nthree', description: 'CHOOSE') 
+                password(name: 'SECRET', defaultValue:'SECRET', description: 'SECRET')
+                file(name: 'FILE', description: 'UPLOAD FILE')
         }
         stages{
-              stage('Hello World'){
-                  environment{
-                        home= "Hyd"
-                  }
+              stage('STRING'){
                   steps{
-                        script{
-                                birth = "July 15th 1997"
-                                echo "$name + $home" 
+                               echo "params.STRING" 
                         }
-                  }
-                  
-              }
+                   }
+              stage('BOOLEAN'){
+                   steps{
+                         script{
+                                        if(params.TOOBLE == True)
+                                        {
+                                                echo "True"
+                                        }
+                                        else
+                                        {
+                                                echo "False"
+                                        }
+                                }
+                        }
+                   }
+               stage('TEXT'){
+                      steps{
+                            echo $TEXT
+                      }
+               }
+               stage('CHOICE'){
+                     steps{
+                        echo '$CHOICE'
+                     }
+               }
+               stage('PASSWORD'){
+                               steps{
+                                        echo "$PASSWORD"
+                               }
+               }
+               stage('file'){
+                        steps{
+                                echo $FILE
+                        }
+               }
+               
         }
 }
