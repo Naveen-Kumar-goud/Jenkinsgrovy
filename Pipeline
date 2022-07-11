@@ -11,7 +11,7 @@ pipeline{
                   steps{
                         script{
                                 birth = "July 15th 1997"
-                                echo "Name: $name, Home: $home, Birth = $birth" 
+                                echo "$name + $home" 
                         }
                   }
                   
